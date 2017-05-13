@@ -1,0 +1,25 @@
+<button id="test">Click Me!</button>
+<script>
+  if(this === window){
+   console.log("this === window");
+  }
+
+  var button = {
+  	clicked: false,
+	click: () => {
+		this.clicked = true;
+		if(button.clicked) {
+			console.log("The button has been clicked");
+		}
+		if(this === window){ 
+			console.log("In arrow function this === window");
+		}
+		if(window.clicked) {
+			console.log("clicked is stored in window");
+		}
+	}
+  }
+
+  var elem = document.getElementById("test");
+  elem.addEventListener("click", button.click);
+</script>

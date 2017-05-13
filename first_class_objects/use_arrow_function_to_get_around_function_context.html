@@ -1,0 +1,20 @@
+<html>
+
+<button id="test">Click Me!</button> 
+<script>
+function Button(){ 
+	this.clicked = false;
+	this.click = () => { 
+       this.clicked = true; 
+        if(button.clicked) {
+        	console.log("The button has been clicked"); 
+        }
+   };
+}
+
+  var button = new Button();
+  var elem = document.getElementById("test");
+  elem.addEventListener("click", button.click);
+</script>
+
+</html>

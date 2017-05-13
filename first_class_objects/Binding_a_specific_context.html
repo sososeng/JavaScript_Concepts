@@ -1,0 +1,19 @@
+<button id="test">Click Me!</button>
+<script>
+  var button = {
+    clicked: false,
+    click: function(){
+      this.clicked = true;
+      if(button.clicked){
+      	console.log("The button has been clicked");
+	  
+	  }
+    }
+};
+var elem = document.getElementById("test"); 
+elem.addEventListener("click", button.click.bind(button));
+  var boundFunction = button.click.bind(button);
+  if(boundFunction != button.click){
+         console.log("Calling bind creates a completly new function");
+  }
+</script>
