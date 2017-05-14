@@ -1,0 +1,31 @@
+<div id="box1">First Box</div>
+<script>
+function animateIt(elementId) {
+var elem = document.getElementById(elementId); 
+var tick = 0;
+
+var timer = setInterval(function(){ //A built-in function that creates and starts an interval timer, given a callback
+	if (tick < 100) {
+      elem.style.left = elem.style.top = tick + "px";
+	  tick++; 
+	}
+else {
+  clearInterval(timer);
+
+
+if(tick === 100){ //After 100 ticks, we stop the timer and perform tests to assert that we can see all relevant variables needed to perform the animation.
+	console.log("Tick accessed via a closure.");
+}
+if(elem){
+    console.log("Element also accessed via a closure.");
+}
+if(timer){
+    console.log("Timer reference also obtained via a closure." );
+}
+
+}
+}, 10); //The setInterval duration— the callback will be called every 10ms.
+}
+
+animateIt("box1");//Now that it’s all set up, we set it in motion!
+</script>
